@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Page</title>
+    <link rel="stylesheet" href="Exam.css">
+</head>
+<body>
+   
+
+       <div class="question">
+    <h3 id="questionNumber"></h3>
+    <p id="questionText"></p>
+    <div id="optionsContainer">
+    </div>
+
+    <div class="button-group">
+   <button onclick="prevQ()">Previous</button>
+   <button onclick="nextQ()">Next</button>
+   <button onclick="markQ()">Flag</button>
+   <button onclick="showScore()">Submit</button>
+    </div>
+
+    </div>
+    <div class="SD">
+    <h4>Flagged Questions</h4>
+    <div id="markedList"></div>
+    <h4 id="timer" style="margin-top:20px; color:#922a8f;"></h4>
+    </div>
+
+    <script src="Exam.js"></script>
+</body>
+</html>
