@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sign Up</title>
+    <link rel="stylesheet" href="signUp.css">
+</head>
+<body>
+    <div class="container">
+       <div>
+        <h2>Welcome to THE EXAM </h2>
+        <p>Please to Sign-Up Enter your Information </p>
+
+        <form action="" class="Form"> 
+          <div class="row">
+           <div class="input1" id="first">
+            <label for="First Name">First Name</label>
+              <input type="text" placeholder="enter your first name" name="First Name" id="First Name" >
+                  <span class="error" id="firstError"></span>
+        <br>
+           </div>
+         <div class="input1" id="last">
+          <label for="Last Name">Last Name</label>
+           <input type="text" placeholder="enter your last name" name="Last Name" id="Last Name" >
+            <span class="error" id="lastError"></span>
+        <br>
+         </div>
+        </div>
+       <div class="row">
+         <div class="input1" id="pa">
+          <label for="password">Password</label>
+           <input type="password" placeholder="Type your password here" name="password" id="password" >
+            <span class="error" id="passError"></span>
+         <br>
+        </div>
+          <div class="input1" id="re-pa">
+           <label for="re-password"> Confirm Password</label>
+            <input type="password" placeholder="Type your password again" name="re-password" id="re-password" >
+             <span class="error" id="repassError"></span>
+       <br>
+    </div>
+        </div>
+         <div id="em">
+        <label for="Email">Email Address</label>
+        <input type="email" placeholder="email@gmail.com" name="Email" id="Email" >
+        <span class="error" id="emailError"></span>
+
+         <br>
+        </div>
+        <div id="button">
+        <button type="submit"class="btn">Create account</button>
+    </div>
+    </form>
+       </div>
+    </div>
+    <script src="signUp.js"></script>
+</body>
+</html>
