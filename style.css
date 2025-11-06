@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4c678a, #b560b0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 320px;
+  }
+  
+  h1 {
+    color: #0b2625;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: #7b8585;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d7e7e7;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  input:focus {
+    border-color: #19a89e;
+    outline: none;
+    box-shadow: 0 0 3px rgba(25, 168, 158, 0.3);
+  }
+  
+  .remember {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .remember label {
+    margin-left: 6px;
+    font-size: 13px;
+    color: #555;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #922a8f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #a080a0;
+  }
+  
+  .signup-text {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  
+  .signup-text a {
+    color: #922a8f;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
