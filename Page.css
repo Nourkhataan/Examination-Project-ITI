@@ -16,7 +16,7 @@ p {
   font-size: 35px;           
   font-weight: 600;
   line-height: 1.6;
-  margin-left: 70px;
+  margin-left: 90px;
   margin-top:230px ;
   background: linear-gradient(90deg, #4a148c, #9c27b0); 
   -webkit-background-clip: text;
@@ -24,16 +24,16 @@ p {
 }
 
 button {
-  width: 13%;
+  width: 20%;
   padding: 10px;
   background-color: #922a8f;
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 21px;
   cursor: pointer;
-  margin-top: 210px;
-  margin-left: 100px;
+  margin-top: 180px;
+  margin-left: 210px;
   transition: 0.3s;
 }
 

@@ -1,25 +1,33 @@
+var scoreValue = document.getElementById("score-value");
+var message = document.getElementById("message");
+var score = localStorage.getItem("examScore");
+var timeUp = localStorage.getItem("timeUp");
 
-let userScore = 4; 
-
-const scoreValue = document.getElementById("score-value");
-const resultMessage = document.getElementById("result-message");
-const tryAgainBtn = document.getElementById("try-again");
-
-
-scoreValue.textContent = `${userScore} / 10`;
-
-if (userScore >= 5) {
-  resultMessage.textContent = " Congratulations! You Passed!";
-  resultMessage.style.color = "#00ffb3";
-} else {
-  resultMessage.textContent = " You Failed. Please try again!";
-  resultMessage.style.color = "#ff5c5c";
+if (!score) {
+  score = 0; 
 }
 
+scoreValue.textContent = `${score}%`;
+if (timeUp === "true") {
+  message.textContent = `Time’s up! Your score is ${score}%.`;
+  message.style.color = "#ff4c4c";
+  localStorage.removeItem("timeUp");
+}
+else if (score < 60) {
+  message.textContent = "You failed, Hamada! You need to pull yourself together!";
+  message.style.color = "#ff4c4c";
+} else if (score >= 60 && score < 80) {
+  message.textContent = "Good job, Hamada! But you still need to work harder!";
+  message.style.color = "#00b36b";
+} else {
+  message.textContent = "Excellent, Hamada! You’re the best!";
+  message.style.color = "#00b36b";
+}
 
-tryAgainBtn.addEventListener("click", () => {
-  alert("Redirecting to the quiz page...");
- 
-  window.location.href = "quiz.html";
-});
+function retry() {
+  window.location.href = "Exam.html";
+}
 
+function goHome() {
+  window.location.href = "LP.html";
+}

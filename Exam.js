@@ -51,11 +51,22 @@ var questions = [
   }
 ];
 
+function shuffleQuestions(arr)
+{
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]]; 
+  }
+  return arr;
+}
+questions = shuffleQuestions(questions);
+
 var current = 0;
 var marked = new Set();
 var answers = {};
 
-function loadQuestion(index) {
+function loadQuestion(index) 
+{
   var q = questions[index];
   document.getElementById('questionNumber').textContent = `Question ${index + 1}`;
   document.getElementById('questionText').textContent = q.text;
@@ -72,9 +83,10 @@ function loadQuestion(index) {
       <label for="${inputId}">${opt}</label>
     `;
 
-    if (answers[index] === opt) {
+    if (answers[index] === opt) 
+      {
       div.querySelector('input').checked = true;
-    }
+      }
 
     div.querySelector('input').addEventListener('change', (e) => {
       answers[index] = e.target.value;
@@ -82,25 +94,60 @@ function loadQuestion(index) {
 
     container.appendChild(div);
   });
+
+var nextBtn = document.getElementById("nextBtn");
+var prevBtn = document.getElementById("prevBtn");
+
+if (current === 0) 
+ {
+  prevBtn.style.display = "none";  
+ } 
+else 
+ {
+  prevBtn.style.display = "inline-block";
+ }
+
+if (current === questions.length - 1) 
+ {
+  nextBtn.style.display = "none"; 
+ } 
+else 
+ {
+  nextBtn.style.display = "inline-block";
+ }
+
 }
 
-function nextQ() {
-  if (current < questions.length - 1) {
+function nextQ() 
+ {
+  if (current < questions.length - 1) 
+   {
     current++;
     loadQuestion(current);
-  }
-}
+   }
+ }
 
-function prevQ() {
-  if (current > 0) {
+function prevQ() 
+{
+  if (current > 0 ) 
+    {
     current--;
     loadQuestion(current);
-  }
+    }
 }
 
-function markQ() {
-  marked.add(current);
-  updateMarkedSidebar();
+function markQ() 
+{
+ 
+  if (marked.has(current)) 
+    {
+    marked.delete(current); 
+    } 
+    else 
+    {
+    marked.add(current); 
+    }
+  updateMarkedSidebar(); 
 }
 
 function updateMarkedSidebar() {
@@ -119,19 +166,22 @@ function updateMarkedSidebar() {
 }
 
 function showScore() {
-  var score = 0;
-  questions.forEach((q, i) => {
-    if (answers[i] === q.correct) score++;
-  });
+  var total = questions.length;
+  var correct = 0;
 
-  document.body.innerHTML = `
-    <div class="score-page" style="text-align:center; margin-top:100px;">
-      <h1>Exam Completed!</h1>
-      <h2>Your Score: ${score} / ${questions.length}</h2>
-      <p>${score >= questions.length / 2 ? "Well done!" : "Keep practicing!"}</p>
-      <button onclick="location.reload()">Retake Exam</button>
-    </div>
-  `;
+  for (var i = 0; i < total; i++) 
+    {
+    if (answers[i] === questions[i].correct) 
+    {
+      correct++;
+    }
+    }
+
+  var score = Math.round((correct / total) * 100);
+  localStorage.setItem("examScore", score);
+
+  
+  window.location.href = "Score.html";
 }
 
 var timeLeft = 5 * 60;
@@ -147,6 +197,7 @@ function updateTimer() {
 
   if (timeLeft <= 0) {
     clearInterval(timerInterval);
+    localStorage.setItem("timeUp", "true");
     showScore();
   }
   timeLeft--;

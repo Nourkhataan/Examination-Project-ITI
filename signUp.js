@@ -28,6 +28,19 @@ document.querySelectorAll(".error").forEach(e => e.textContent = "");
   document.getElementById("passError").textContent ="Password is required.";
   isValid = false;
   }
+   else if (password.length < 8) {
+  document.getElementById("passError").textContent = "Password must be at least 8 characters long.";
+  isValid = false;
+} else if (!/[A-Z]/.test(password)) {
+  document.getElementById("passError").textContent = "Password must contain at least one uppercase letter.";
+  isValid = false;
+} else if (!/[a-z]/.test(password)) {
+  document.getElementById("passError").textContent = "Password must contain at least one lowercase letter.";
+  isValid = false;
+} else if (!/[0-9]/.test(password)) {
+  document.getElementById("passError").textContent = "Password must contain at least one number.";
+  isValid = false;
+}
 
   if(!coPassword) {
     document.getElementById("repassError").textContent ="Please confirm your password..";
@@ -63,6 +76,14 @@ document.querySelectorAll(".error").forEach(e => e.textContent = "");
     localStorage.setItem("users", JSON.stringify(users));
     form.reset();
     window.location.href = "Login.html"; 
+    
   
   } 
+
+});
+document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("input", () => {
+    const errorSpan = input.parentElement.querySelector(".error");
+    if (errorSpan) errorSpan.textContent = "";
+  });
 });
